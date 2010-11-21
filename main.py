@@ -36,8 +36,8 @@ class Redirect(webapp.RequestHandler):
 
 
 # Choose: error out or redirect.
-#APPLICATION = webapp.WSGIApplication([('.*', Error)], debug=False)
-APPLICATION = webapp.WSGIApplication([('.*', Redirect)], debug=False)
+APPLICATION = webapp.WSGIApplication([('.*', Error)], debug=False)
+#APPLICATION = webapp.WSGIApplication([('.*', Redirect)], debug=False)
 
 
 def main():

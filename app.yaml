@@ -6,3 +6,9 @@ api_version: 1
 handlers:
 - url: /.*
   script: main.py
+
+builtins:
+- admin_redirect: on
+- appstats: on
+- datastore_admin: on
+- remote_api: on
