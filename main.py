@@ -4,11 +4,10 @@
 
 """Returns a HTTP code on all requests."""
 
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp import util
+from google.appengine.ext import webapp2
 
 
-class Error(webapp.RequestHandler):
+class Error(webapp2.RequestHandler):
   # http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
   error_code = 503
 
@@ -19,7 +18,7 @@ class Error(webapp.RequestHandler):
     self.response.set_status(self.error_code)
 
 
-class Redirect(webapp.RequestHandler):
+class Redirect(webapp2.RequestHandler):
   # Put the new host there.
   new_host = 'my.new.host.com'
 
@@ -35,14 +34,5 @@ class Redirect(webapp.RequestHandler):
     self.redirect_all()
 
 
-# Choose: error out or redirect.
-APPLICATION = webapp.WSGIApplication([('.*', Error)], debug=False)
-#APPLICATION = webapp.WSGIApplication([('.*', Redirect)], debug=False)
-
-
-def main():
-  util.run_wsgi_app(APPLICATION)
-
-
-if __name__ == "__main__":
-  main()
+app = webapp2.WSGIApplication([('.*', Error)], debug=False)
+#app = webapp2.WSGIApplication([('.*', Redirect)], debug=False)

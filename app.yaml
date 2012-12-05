@@ -1,14 +1,9 @@
 application: changemeplease
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
 
 handlers:
 - url: /.*
-  script: main.py
-
-builtins:
-- admin_redirect: on
-- appstats: on
-- datastore_admin: on
-- remote_api: on
+  script: main.app
