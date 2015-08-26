@@ -4,7 +4,7 @@
 
 """Returns a HTTP code on all requests."""
 
-from google.appengine.ext import webapp2
+import webapp2
 
 
 class Error(webapp2.RequestHandler):
@@ -12,6 +12,8 @@ class Error(webapp2.RequestHandler):
   error_code = 503
 
   def get(self):
+    self.response.headers['Content-Type'] = 'text/plain'
+    self.response.write('Get lost.')
     self.response.set_status(self.error_code)
 
   def post(self):

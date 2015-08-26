@@ -7,3 +7,9 @@ threadsafe: true
 handlers:
 - url: /.*
   script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: webob
+  version: "1.2.3"
